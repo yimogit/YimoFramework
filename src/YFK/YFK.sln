@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{918ACAD9-E7E8-42F0-861A-ED0B08562B48}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{BB57B7DB-F56A-4DD2-B74A-975241A506EA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{6B1801C5-0342-4DE3-8ABE-DB81DE020CA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YFK.Web", "YFK.Web\YFK.Web.csproj", "{6CED3A8B-72FB-4A96-AC1C-04714B4C6EBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YFK.Admin", "YFK.Web\Modules\YFK.Admin\YFK.Admin.csproj", "{DEDBC8DE-1FC3-46A8-92ED-FD9384AC92AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YFK.Core", "YFK.Core\YFK.Core.csproj", "{108B1BB4-6921-4FD6-BEF1-5B02AE0853FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YFK.MvcFramework", "YFK.MvcFramework\YFK.MvcFramework.csproj", "{AED69DC8-4D07-42C8-AA00-F5E0130ACD2B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Remark", "Remark", "{CAB8D9C4-842C-471C-B596-759CAEB0310C}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.MD = Readme.MD
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6CED3A8B-72FB-4A96-AC1C-04714B4C6EBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CED3A8B-72FB-4A96-AC1C-04714B4C6EBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CED3A8B-72FB-4A96-AC1C-04714B4C6EBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CED3A8B-72FB-4A96-AC1C-04714B4C6EBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEDBC8DE-1FC3-46A8-92ED-FD9384AC92AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEDBC8DE-1FC3-46A8-92ED-FD9384AC92AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEDBC8DE-1FC3-46A8-92ED-FD9384AC92AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEDBC8DE-1FC3-46A8-92ED-FD9384AC92AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{108B1BB4-6921-4FD6-BEF1-5B02AE0853FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{108B1BB4-6921-4FD6-BEF1-5B02AE0853FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{108B1BB4-6921-4FD6-BEF1-5B02AE0853FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{108B1BB4-6921-4FD6-BEF1-5B02AE0853FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AED69DC8-4D07-42C8-AA00-F5E0130ACD2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AED69DC8-4D07-42C8-AA00-F5E0130ACD2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AED69DC8-4D07-42C8-AA00-F5E0130ACD2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AED69DC8-4D07-42C8-AA00-F5E0130ACD2B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6CED3A8B-72FB-4A96-AC1C-04714B4C6EBC} = {918ACAD9-E7E8-42F0-861A-ED0B08562B48}
+		{DEDBC8DE-1FC3-46A8-92ED-FD9384AC92AF} = {BB57B7DB-F56A-4DD2-B74A-975241A506EA}
+		{108B1BB4-6921-4FD6-BEF1-5B02AE0853FC} = {6B1801C5-0342-4DE3-8ABE-DB81DE020CA5}
+		{AED69DC8-4D07-42C8-AA00-F5E0130ACD2B} = {6B1801C5-0342-4DE3-8ABE-DB81DE020CA5}
+	EndGlobalSection
+EndGlobal
