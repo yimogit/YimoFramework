@@ -28,5 +28,18 @@ namespace YFK.Core.Configuration
                 return this["adminDomin"].Value;
             }
         }
+        /// <summary>
+        /// 日志保存路径
+        /// </summary>
+        /// <remarks>
+        /// \文件夹 盘符:\文件夹
+        /// </remarks>
+        public string LogPath
+        {
+            get
+            {
+                return this["logPath"].Value;
+            }
+        }
     }
 }

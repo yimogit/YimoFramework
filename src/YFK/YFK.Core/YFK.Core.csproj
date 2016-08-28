@@ -33,6 +33,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,6 +48,9 @@
     <Compile Include="Configuration\WebSettingElement.cs" />
     <Compile Include="Configuration\WebSettingExt.cs" />
     <Compile Include="Configuration\YFKConfig.cs" />
+    <Compile Include="Logger\FileLogger.cs" />
+    <Compile Include="Logger\ILogger.cs" />
+    <Compile Include="Logger\LogLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

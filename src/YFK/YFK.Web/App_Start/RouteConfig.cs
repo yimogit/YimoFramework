@@ -28,7 +28,6 @@ namespace YFK.Web
                     namespaces: new string[] { "YFK.Admin.Controllers" }
                 )
             );
-            
             routes.MapRouteDomain(
                 name: "Web/Home/Index",
                 domain: webDomin,
