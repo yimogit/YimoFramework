@@ -1,0 +1,21 @@
+﻿
+@{
+    Layout = null;
+    ViewBag.Title = "Index";
+}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <p>
+        <span>数据库链接字符串：</span> @WebConfiguration.Configuration.YFKConfig.Instance.Connections.DefaultConnectionString
+    </p>
+    <p>
+        <span>主站域名：</span>@WebConfiguration.Configuration.YFKConfig.Instance.WebSetting.MainDomin
+        <span>后台域名：</span>@WebConfiguration.Configuration.YFKConfig.Instance.WebSetting.AdminDomin
+    </p>
+
+</body>
+</html>
+
