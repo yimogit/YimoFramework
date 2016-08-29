@@ -15,12 +15,5 @@ namespace YFK.Core.Configuration
                 return this["DefaultConnectionString"].ConnectionString;
             }
         }
-        public string RedisConfigString
-        {
-            get
-            {
-                return this["RedisConfigString"].ConnectionString;
-            }
-        }
     }
 }

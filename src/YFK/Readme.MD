@@ -15,10 +15,10 @@
 ## 四、缓存，日志功能
 
 * 实现缓存：         
-    1. MemoryCache √
-    2. Redis √
+    1. MemoryCache
+    2. Redis
 * 实现日志：
-    1. FileLogger √
+    1. File读写
     2. log4net
     3. NLog
 ## 五、使用Ioc容器autofac进行服务的依赖注入
