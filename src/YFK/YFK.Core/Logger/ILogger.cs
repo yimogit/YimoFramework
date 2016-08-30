@@ -10,6 +10,7 @@ namespace YFK.Core.Logger
     {
         void Info(string log);
         void Debug(string log);
+        void Warn(string log);
         void Error(Exception ex);
     }
 }

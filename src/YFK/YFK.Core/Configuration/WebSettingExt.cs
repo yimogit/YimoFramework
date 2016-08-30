@@ -29,10 +29,10 @@ namespace YFK.Core.Configuration
             }
         }
         /// <summary>
-        /// 日志保存路径
+        /// 日志保存路径 末尾带/
         /// </summary>
         /// <remarks>
-        /// \文件夹 盘符:\文件夹
+        /// \文件夹\ 盘符:\文件夹\
         /// </remarks>
         public string LogPath
         {

@@ -19,6 +19,11 @@ namespace YFK.Core.Logger
             WriteLog(LogLevel.Debug, log);
         }
 
+        public void Warn(string log)
+        {
+            WriteLog(LogLevel.Warn, log);
+        }
+
         public void Error(Exception ex)
         {
             StringBuilder errMsg = new StringBuilder();
@@ -34,10 +39,13 @@ namespace YFK.Core.Logger
         }
         private void WriteLog(LogLevel level, string log)
         {
-            var path = string.Format(@"{0}\{1}\{2}", YFK.Core.Configuration.YFKConfig.Instance.WebSetting.LogPath, DateTime.Now.ToString("yyyy年MM月dd日"), level.ToString());
-            if (path.Contains(":\\") == false && System.Web.HttpContext.Current != null)
+            var path = string.Format(@"{0}{1}\{2}", YFK.Core.Configuration.YFKConfig.Instance.WebSetting.LogPath, DateTime.Now.ToString("yyyy年MM月dd日"), level.ToString());
+            if (path.Contains(":\\") == false)
             {
-                path = System.Web.HttpContext.Current.Server.MapPath(path);
+                if (System.Web.HttpContext.Current != null)
+                    path = System.Web.HttpContext.Current.Server.MapPath(path);
+                else
+                    path = AppDomain.CurrentDomain.BaseDirectory + path;
             }
             var fileName = string.Format("{0}.txt", DateTime.Now.ToString("HH"));
             if (!Directory.Exists(path))
@@ -45,7 +53,7 @@ namespace YFK.Core.Logger
             using (FileStream fs = new FileStream(Path.Combine(path, fileName), FileMode.Append, FileAccess.Write,
                                                   FileShare.Write, 1024, FileOptions.Asynchronous))
             {
-                log = string.Format("记录时间：{0}\r\n{1}\r\n======================================\r\n",
+                log = string.Format("================记录时间：{0}================\r\n{1}\r\n",
                     DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), log);
                 byte[] buffer = System.Text.Encoding.UTF8.GetBytes(log + "\r\n");
                 IAsyncResult writeResult = fs.BeginWrite(buffer, 0, buffer.Length,

@@ -12,6 +12,7 @@ namespace YFK.CoreTests
         public void 日志写入测试()
         {
             ILogger logger = new FileLogger();
+            logger.Info("测试日志");
             try
             {
                 int i = 1, j = 0;
@@ -22,6 +23,22 @@ namespace YFK.CoreTests
                 logger.Error(ex);
             }
         }
+        [TestMethod]
+        public void log4net日志测试()
+        {
+            ILogger logger = new Log4netLogger();
+            logger.Info("log4net测试日志");
+            try
+            {
+                int i = 1, j = 0;
+                i = i / j;
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+            }
+        }
+
         [TestMethod]
         public void Redis测试()
         {

@@ -10,6 +10,7 @@ namespace YFK.Core.Logger
     {
         Info,
         Debug,
+        Warn,
         Error
     }
 }
