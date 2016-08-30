@@ -1,6 +1,0 @@
-﻿/*不要footer的时候*/
-
-#content-main {
-    height: calc(100% - 111px);
-    overflow: hidden;
-}
