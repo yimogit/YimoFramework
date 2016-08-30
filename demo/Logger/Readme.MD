@@ -1,68 +1,76 @@
-# ÈÕÖ¾¼ÇÂ¼
-log4net£ºÊÇApache log4j¿ò¼ÜÔÚMicrosoft .NETÆ½Ì¨µÄÊµÏÖ£¬ÊÇÒ»¸ö°ïÖú³ÌÐòÔ±½«ÈÕÖ¾ÐÅÏ¢Êä³öµ½¸÷ÖÖÄ¿±ê£¨¿ØÖÆÌ¨¡¢ÎÄ¼þ¡¢Êý¾Ý¿âµÈ£©µÄ¹¤¾ß
+ï»¿# æ—¥å¿—è®°å½•
+log4netï¼šæ˜¯Apache log4jæ¡†æž¶åœ¨Microsoft .NETå¹³å°çš„å®žçŽ°ï¼Œæ˜¯ä¸€ä¸ªå¸®åŠ©ç¨‹åºå‘˜å°†æ—¥å¿—ä¿¡æ¯è¾“å‡ºåˆ°å„ç§ç›®æ ‡ï¼ˆæŽ§åˆ¶å°ã€æ–‡ä»¶ã€æ•°æ®åº“ç­‰ï¼‰çš„å·¥å…·
 
-FileLogger£ºÓÃÓÚ´¿ÎÄ±¾ÈÕÖ¾Ð´Èë
+FileLoggerï¼šç”¨äºŽçº¯æ–‡æœ¬æ—¥å¿—å†™å…¥
 
-# Ò»¡¢log4net
+# ä¸€ã€log4net
 
-log4netµÄÅäÖÃ(Config/log4net.config)ÖÐ°üº¬4ÖÐÊµÏÖ£º¸ù¾ÝÐèÒªÆôÓÃ£¨È¡Ïûroot½ÚµãÖÐµÄ×¢ÊÍ£©
-1. ÎÄ¼þÐÎÊ½¼ÇÂ¼ÈÕÖ¾£¨º¬´íÎóÈÕÖ¾£©£¬´íÎóÈÕÖ¾
-2. ¿ØÖÆÌ¨Êä³ö
-3. Êý¾Ý¿â±£´æ£¨ÆôÓÃÐèÒª´´½¨ÈÕÖ¾±í[¼ûconfig/log4net.config]£©
-4. ÓÊ¼þ·¢ËÍ£¨ÆôÓÃÐèÒªÅäÖÃÓÊÏä£©
+log4netçš„é…ç½®(Config/log4net.config)ä¸­åŒ…å«4ä¸­å®žçŽ°ï¼šæ ¹æ®éœ€è¦å¯ç”¨ï¼ˆå–æ¶ˆrootèŠ‚ç‚¹ä¸­çš„æ³¨é‡Šï¼‰
 
-Ê¹ÓÃ²½Öè£º
-1. Ìí¼Ólog4netÒýÓÃ
-2. ÔÚconfigÖÐÅäÖÃ×Ô¶¨Òå½Ú£º
+1. æ–‡ä»¶å½¢å¼è®°å½•æ—¥å¿—ï¼ˆå«é”™è¯¯æ—¥å¿—ï¼‰ï¼Œé”™è¯¯æ—¥å¿—
+
+2. æŽ§åˆ¶å°è¾“å‡º
+
+3. æ•°æ®åº“ä¿å­˜ï¼ˆå¯ç”¨éœ€è¦åˆ›å»ºæ—¥å¿—è¡¨[è§config/log4net.config]ï¼‰
+
+4. é‚®ä»¶å‘é€ï¼ˆå¯ç”¨éœ€è¦é…ç½®é‚®ç®±ï¼‰
+
+ä½¿ç”¨æ­¥éª¤ï¼š
+
+1. æ·»åŠ log4netå¼•ç”¨
+
+2. åœ¨configä¸­é…ç½®è‡ªå®šä¹‰èŠ‚ï¼š
+
 `<configSections><section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler,log4net"/></configSections>`   
-Ö¸¶¨configSourceµÄÎÄ¼þÎª½ÚµãÅäÖÃ£º`<log4net configSource="Config\log4net.config" />`
-3. ÅäÖÃlog4net.config
+æŒ‡å®šconfigSourceçš„æ–‡ä»¶ä¸ºèŠ‚ç‚¹é…ç½®ï¼š`<log4net configSource="Config\log4net.config" />`
+
+3. é…ç½®log4net.config
 
         `
         <log4net>
         <root>
-            <!-- ¼ÇÂ¼ÄÄ¸ö¼¶±ðÒÔÉÏµÄÈÕÖ¾:  OFF->FATAL->ERROR->WARN->INFO->DEBUG/ALL  DEBUG¡ü-->
+            <!-- è®°å½•å“ªä¸ªçº§åˆ«ä»¥ä¸Šçš„æ—¥å¿—:  OFF->FATAL->ERROR->WARN->INFO->DEBUG/ALL  DEBUGâ†‘-->
             <level value="DEBUG" />
-            <!--ÎÄ¼þÐÎÊ½¼ÇÂ¼ÈÕÖ¾-->
+            <!--æ–‡ä»¶å½¢å¼è®°å½•æ—¥å¿—-->
             <appender-ref ref="RollingLogFileAppender" />
-            <!--´íÎóÈÕÖ¾±£´æµ½ErrorÎÄ¼þ¼Ð Ê¹ÓÃfilter±£´æError¼¶±ð¡üµÄÈÕÖ¾-->
+            <!--é”™è¯¯æ—¥å¿—ä¿å­˜åˆ°Erroræ–‡ä»¶å¤¹ ä½¿ç”¨filterä¿å­˜Errorçº§åˆ«â†‘çš„æ—¥å¿—-->
             <appender-ref ref="RollingLogFileError"/>
-            <!--Êä³ö¿ØÖÆÌ¨-->
+            <!--è¾“å‡ºæŽ§åˆ¶å°-->
             <appender-ref ref="ConsoleAppender" />
-            <!--±£´æµ½Êý¾Ý¿â ÈôÆôÓÃÔòÐèÒª´´½¨SQLServerÊý¾Ý±í-->
+            <!--ä¿å­˜åˆ°æ•°æ®åº“ è‹¥å¯ç”¨åˆ™éœ€è¦åˆ›å»ºSQLServeræ•°æ®è¡¨-->
             <!--<appender-ref ref="AdoNetAppender_SqlServer" />-->
-            <!--·¢ËÍÓÊ¼þ ÈôÆôÓÃÔòÐèÒªÅäÖÃÓÊÏäÐÅÏ¢-->
+            <!--å‘é€é‚®ä»¶ è‹¥å¯ç”¨åˆ™éœ€è¦é…ç½®é‚®ç®±ä¿¡æ¯-->
             <!--<appender-ref ref="SmtpAppender" />-->
         </root>
-        <!--ËùÓÐÈÕÖ¾ÅäÖÃ-->
+        <!--æ‰€æœ‰æ—¥å¿—é…ç½®-->
         <appender name="RollingLogFileAppender" type="log4net.Appender.RollingFileAppender">
-            <!--1. ÎÄ¼þÂ·¾¶£¬Èç¹ûRollingStyleÎªComposite»òDate£¬ÔòÕâÀïÉèÖÃÎªÄ¿Â¼£¬ÎÄ¼þÃûÔÚDatePatternÀïÉèÖÃ£¬ÆäËûÔòÕâÀïÒªÓÐÎÄ¼þÃû¡£ÒÑ¾­À©Õ¹Ö§³ÖÐéÄâÄ¿Â¼-->
+            <!--1. æ–‡ä»¶è·¯å¾„ï¼Œå¦‚æžœRollingStyleä¸ºCompositeæˆ–Dateï¼Œåˆ™è¿™é‡Œè®¾ç½®ä¸ºç›®å½•ï¼Œæ–‡ä»¶ååœ¨DatePatterné‡Œè®¾ç½®ï¼Œå…¶ä»–åˆ™è¿™é‡Œè¦æœ‰æ–‡ä»¶åã€‚å·²ç»æ‰©å±•æ”¯æŒè™šæ‹Ÿç›®å½•-->
             <file value="Logs\Info\" />
-            <!--2. ´´½¨ÐÂÎÄ¼þµÄ·½Ê½£¬¿ÉÑ¡ÎªSize£¨°´ÎÄ¼þ´óÐ¡£©£¬Date£¨°´ÈÕÆÚ£©£¬Once£¨Ã¿Æô¶¯Ò»´Î´´½¨Ò»¸öÎÄ¼þ£©£¬Composite£¨°´ÈÕÆÚ¼°ÎÄ¼þ´óÐ¡£©£¬Ä¬ÈÏÎªComposite-->
+            <!--2. åˆ›å»ºæ–°æ–‡ä»¶çš„æ–¹å¼ï¼Œå¯é€‰ä¸ºSizeï¼ˆæŒ‰æ–‡ä»¶å¤§å°ï¼‰ï¼ŒDateï¼ˆæŒ‰æ—¥æœŸï¼‰ï¼ŒOnceï¼ˆæ¯å¯åŠ¨ä¸€æ¬¡åˆ›å»ºä¸€ä¸ªæ–‡ä»¶ï¼‰ï¼ŒCompositeï¼ˆæŒ‰æ—¥æœŸåŠæ–‡ä»¶å¤§å°ï¼‰ï¼Œé»˜è®¤ä¸ºComposite-->
             <rollingStyle value="Composite" />
-            <!--3. µ±RollingStyleÎªComposite»òDate£¬ÕâÀïÉèÖÃÎÄ¼þÃû¸ñÊ½-->
+            <!--3. å½“RollingStyleä¸ºCompositeæˆ–Dateï¼Œè¿™é‡Œè®¾ç½®æ–‡ä»¶åæ ¼å¼-->
             <datePattern value='yyyy-MM-dd".txt"' />
-            <!--4. true/false£¬Ä¬ÈÏÎªtrue¡£ÎªtrueÊ±£¬RollingStyleµÄdateÖµ½«ÎÞÐ§¡£ÇÒÎªtrueÊ±£¬ÐèÒªÔÚfileÀïÖ¸¶¨ÎÄ¼þÃû£¬ËùÓÐÈÕÖ¾¶¼»á¼ÇÂ¼ÔÚÕâ¸öÎÄ¼þÀï¡£-->
+            <!--4. true/falseï¼Œé»˜è®¤ä¸ºtrueã€‚ä¸ºtrueæ—¶ï¼ŒRollingStyleçš„dateå€¼å°†æ— æ•ˆã€‚ä¸”ä¸ºtrueæ—¶ï¼Œéœ€è¦åœ¨fileé‡ŒæŒ‡å®šæ–‡ä»¶åï¼Œæ‰€æœ‰æ—¥å¿—éƒ½ä¼šè®°å½•åœ¨è¿™ä¸ªæ–‡ä»¶é‡Œã€‚-->
             <staticLogFileName value="false" />
-            <!--5. µ±rollingStyleÎªComposite»òSize£¬ÕâÀïÉèÖÃ×î´óÎÄ¼þ´óÐ¡£¨¿ÉÒÔKB£¬MB£¬GBÎªµ¥Î»£¬Ä¬ÈÏÎª×Ö½Ú£©-->
+            <!--5. å½“rollingStyleä¸ºCompositeæˆ–Sizeï¼Œè¿™é‡Œè®¾ç½®æœ€å¤§æ–‡ä»¶å¤§å°ï¼ˆå¯ä»¥KBï¼ŒMBï¼ŒGBä¸ºå•ä½ï¼Œé»˜è®¤ä¸ºå­—èŠ‚ï¼‰-->
             <maximumFileSize value="30MB" />
-            <!--6. Ä¬ÈÏÖµÎª-1¡£µ±ÎÄ¼þ³¬¹ýMaximumFileSizeµÄ´óÐ¡Ê±£¬Èç¹ûÒª´´½¨ÐÂµÄÎÄ¼þÀ´´æ´¢ÈÕÖ¾£¬»á¸ù¾ÝCountDirectionµÄÖµÀ´ÖØÃüÃûÎÄ¼þ¡£  
-                    ´óÓÚ-1µÄÖµÊ±£¬fileÀïÖ¸¶¨µÄÎÄ¼þÃû»áÒÀ´Î¼ÓÉÏ.0,.1,.2µÝÔö¡£  
-                    µ±µÈÓÚ»òÐ¡ÓÚ-1Ê±£¬´´½¨ÒÀÀµÓÚMaxSizeRollBackups²ÎÊýÖµ£¬´´½¨±¸·ÝÈÕÖ¾Êý¡£-->
+            <!--6. é»˜è®¤å€¼ä¸º-1ã€‚å½“æ–‡ä»¶è¶…è¿‡MaximumFileSizeçš„å¤§å°æ—¶ï¼Œå¦‚æžœè¦åˆ›å»ºæ–°çš„æ–‡ä»¶æ¥å­˜å‚¨æ—¥å¿—ï¼Œä¼šæ ¹æ®CountDirectionçš„å€¼æ¥é‡å‘½åæ–‡ä»¶ã€‚  
+                    å¤§äºŽ-1çš„å€¼æ—¶ï¼Œfileé‡ŒæŒ‡å®šçš„æ–‡ä»¶åä¼šä¾æ¬¡åŠ ä¸Š.0,.1,.2é€’å¢žã€‚  
+                    å½“ç­‰äºŽæˆ–å°äºŽ-1æ—¶ï¼Œåˆ›å»ºä¾èµ–äºŽMaxSizeRollBackupså‚æ•°å€¼ï¼Œåˆ›å»ºå¤‡ä»½æ—¥å¿—æ•°ã€‚-->
             <countDirection value="-1" />
-            <!--7. ±¸·ÝÈÕÖ¾ÊýÄ¿£¬Ä¬ÈÏÎª0¡£ÔÚCountDirectionÎª¸ºÊýÊ±ÓÐÐ§¡£-->
+            <!--7. å¤‡ä»½æ—¥å¿—æ•°ç›®ï¼Œé»˜è®¤ä¸º0ã€‚åœ¨CountDirectionä¸ºè´Ÿæ•°æ—¶æœ‰æ•ˆã€‚-->
             <maxSizeRollBackups value="-1" />
-            <!--8. true/false£¬Ä¬ÈÏÎªtrue¡£µ±ÎÄ¼þ´æÔÚÊ±£¬ÊÇ·ñÔÚÔ­ÎÄ¼þÉÏ×·¼ÓÄÚÈÝ¡£-->
+            <!--8. true/falseï¼Œé»˜è®¤ä¸ºtrueã€‚å½“æ–‡ä»¶å­˜åœ¨æ—¶ï¼Œæ˜¯å¦åœ¨åŽŸæ–‡ä»¶ä¸Šè¿½åŠ å†…å®¹ã€‚-->
             <appendToFile value="true" />
             <layout type="log4net.Layout.PatternLayout">
-            <!-- ÈÕÖ¾ÆðÊ¼Êä³ö »»ÐÐÊ¹ÓÃ£º&#13;&#10;-->
+            <!-- æ—¥å¿—èµ·å§‹è¾“å‡º æ¢è¡Œä½¿ç”¨ï¼š&#13;&#10;-->
             <header value="" />
-            <!-- ÈÕÖ¾½áÊøÊä³ö -->
+            <!-- æ—¥å¿—ç»“æŸè¾“å‡º -->
             <footer value="" />
-            <conversionPattern value="================¼ÇÂ¼Ê±¼ä£º%date Ïß³ÌID:[%thread] ÈÕÖ¾¼¶±ð£º%-5level ================%newline%message%newline%newline" />
+            <conversionPattern value="================è®°å½•æ—¶é—´ï¼š%date çº¿ç¨‹ID:[%thread] æ—¥å¿—çº§åˆ«ï¼š%-5level ================%newline%message%newline%newline" />
             </layout>
         </appender>
-        <!--´íÎóÈÕÖ¾ÅäÖÃ-->
+        <!--é”™è¯¯æ—¥å¿—é…ç½®-->
         <appender name="RollingLogFileError" type="log4net.Appender.RollingFileAppender">
             <file value="Logs\Error\" />
             <rollingStyle value="Composite" />
@@ -75,23 +83,23 @@ log4netµÄÅäÖÃ(Config/log4net.config)ÖÐ°üº¬4ÖÐÊµÏÖ£º¸ù¾ÝÐèÒªÆôÓÃ£¨È¡Ïûroot½ÚµãÖÐµ
             <layout type="log4net.Layout.PatternLayout">
             <header value="" />
             <footer value="" />
-            <conversionPattern value="================¼ÇÂ¼Ê±¼ä£º%date Ïß³ÌID:[%thread] ÈÕÖ¾¼¶±ð£º%-5level ================%newline%message" />
+            <conversionPattern value="================è®°å½•æ—¶é—´ï¼š%date çº¿ç¨‹ID:[%thread] æ—¥å¿—çº§åˆ«ï¼š%-5level ================%newline%message" />
             </layout>
             <filter type="log4net.Filter.LevelRangeFilter">
             <levelMin value="ERROR" />
             <levelMax value="FATAL" />
             </filter>
         </appender>
-        <!--Êä³ö¿ØÖÆÌ¨ÅäÖÃ-->
+        <!--è¾“å‡ºæŽ§åˆ¶å°é…ç½®-->
         <appender name="ConsoleAppender" type="log4net.Appender.ConsoleAppender">
             <layout type="log4net.Layout.PatternLayout">
-            <conversionPattern value="================¼ÇÂ¼Ê±¼ä£º%date Ïß³ÌID:[%thread] ÈÕÖ¾¼¶±ð£º%-5level ================%newline%message%newline" />
+            <conversionPattern value="================è®°å½•æ—¶é—´ï¼š%date çº¿ç¨‹ID:[%thread] æ—¥å¿—çº§åˆ«ï¼š%-5level ================%newline%message%newline" />
             </layout>
         </appender>
-        <!--±£´æµ½Êý¾Ý¿âÅäÖÃ-->
+        <!--ä¿å­˜åˆ°æ•°æ®åº“é…ç½®-->
         <appender name="AdoNetAppender_SqlServer" type="log4net.Appender.ADONetAppender">
-            <!--ÐèÒªÔÚÊý¾Ý¿â´´½¨ÈÕÖ¾±í£¬²¢ÅäÖÃÕýÈ·µÄÁ¬½Ó×Ö·û´®
-            SQLÓï¾ä£º
+            <!--éœ€è¦åœ¨æ•°æ®åº“åˆ›å»ºæ—¥å¿—è¡¨ï¼Œå¹¶é…ç½®æ­£ç¡®çš„è¿žæŽ¥å­—ç¬¦ä¸²
+            SQLè¯­å¥ï¼š
             CREATE TABLE [dbo].[ErrorLog](
             [nId] [bigint] IDENTITY(1,1) NOT NULL,   
             [dtDate] [datetime] NOT NULL,   
@@ -149,15 +157,15 @@ log4netµÄÅäÖÃ(Config/log4net.config)ÖÐ°üº¬4ÖÐÊµÏÖ£º¸ù¾ÝÐèÒªÆôÓÃ£¨È¡Ïûroot½ÚµãÖÐµ
             <layout type="log4net.Layout.ExceptionLayout" />
             </parameter>
         </appender>
-        <!--·¢ËÍÓÊÏäÅäÖÃ-->
+        <!--å‘é€é‚®ç®±é…ç½®-->
         <appender name="SmtpAppender" type="log4net.Appender.SmtpAppender">
-            <!--ÉèÖÃ·¢ËÍµç×ÓÓÊ¼þ-->
+            <!--è®¾ç½®å‘é€ç”µå­é‚®ä»¶-->
             <authentication value="Basic" />
-            <to value="·¢ËÍÈË@qq.com" />
-            <from value="½ÓÊÕÈË@163.com" />
-            <username value="½ÓÊÕÈËÓÃ»§Ãû" />
-            <password value="½ÓÊÕÈËÃÜÂë" />
-            <subject value="¡¾³ÌÐòÒì³£ÈÕÖ¾¼ÇÂ¼ÓÊ¼þ·¢ËÍ¡¿" />
+            <to value="å‘é€äºº@qq.com" />
+            <from value="æŽ¥æ”¶äºº@163.com" />
+            <username value="æŽ¥æ”¶äººç”¨æˆ·å" />
+            <password value="æŽ¥æ”¶äººå¯†ç " />
+            <subject value="ã€ç¨‹åºå¼‚å¸¸æ—¥å¿—è®°å½•é‚®ä»¶å‘é€ã€‘" />
             <smtpHost value="smtp.163.com" />
             <bufferSize value="512" />
             <lossy value="true" />
@@ -165,9 +173,9 @@ log4netµÄÅäÖÃ(Config/log4net.config)ÖÐ°üº¬4ÖÐÊµÏÖ£º¸ù¾ÝÐèÒªÆôÓÃ£¨È¡Ïûroot½ÚµãÖÐµ
             <threshold value="ERROR"/>
             </evaluator>
             <layout type="log4net.Layout.PatternLayout">
-            <conversionPattern value="================¼ÇÂ¼Ê±¼ä£º%date Ïß³ÌID:[%thread] ÈÕÖ¾¼¶±ð£º%-5level ================%newline%message" />
+            <conversionPattern value="================è®°å½•æ—¶é—´ï¼š%date çº¿ç¨‹ID:[%thread] æ—¥å¿—çº§åˆ«ï¼š%-5level ================%newline%message" />
             </layout>
-            <!--Ö»ÓÐERROR£¬FATAL¼¶±ðµÄ´íÎó²Å»á·¢ËÍEmail-->
+            <!--åªæœ‰ERRORï¼ŒFATALçº§åˆ«çš„é”™è¯¯æ‰ä¼šå‘é€Email-->
             <filter type="log4net.Filter.LevelRangeFilter">
             <levelMin value="ERROR" />
             <levelMax value="FATAL" />
@@ -176,21 +184,22 @@ log4netµÄÅäÖÃ(Config/log4net.config)ÖÐ°üº¬4ÖÐÊµÏÖ£º¸ù¾ÝÐèÒªÆôÓÃ£¨È¡Ïûroot½ÚµãÖÐµ
         </log4net>
         `
 
-²Î¿¼Á´½Ó£º
+å‚è€ƒé“¾æŽ¥ï¼š
 -------------------------------
 >http://www.cnblogs.com/wolf-sun/p/3347373.html
+
 >http://blog.csdn.net/yenange/article/details/19559931
 
-# ¶þ¡¢FileLogger
-Òì²½Ð´ÈëÎÄ±¾ÈÕÖ¾
+# äºŒã€FileLogger
+å¼‚æ­¥å†™å…¥æ–‡æœ¬æ—¥å¿—
 
-## ±¸×¢
+## å¤‡æ³¨
 
-* ÔÚÊµÀý»¯µÄÊ±ºòÆô¶¯`log4net.Config.XmlConfigurator.Configure();`£¬ÔòÖ»ÐèÒªÔÚLogger.CoreÀà¿âÖÐÌí¼Ó¶Ôlog4netµÄÒýÓÃ¼´¿É
-* Ê¹ÓÃ`log4net.LogManager.GetLogger("")`»ñÈ¡log4net¶ÔÏó
-* appender>layout>headerÖÐ»»ÐÐ(\r\n)£º&#13;&#10;
-* Ê¹ÓÃfilter½Úµã¹ýÂË²»Í¬µÈ¼¶µÄÈÕÖ¾£¬×ö²»Í¬µÄ´¦Àí£¬Èç¸øERROR¼¶±ðµÄÈÕÖ¾·¢ËÍÓÊ¼þ~
-* Èô´ò¿ªlog4net.configÊ§°ÜÔòÐÞ¸ÄÆäÊôÐÔÎª¡¾Ê¼ÖÕ¸´ÖÆ¡¿
+* åœ¨å®žä¾‹åŒ–çš„æ—¶å€™å¯åŠ¨`log4net.Config.XmlConfigurator.Configure();`ï¼Œåˆ™åªéœ€è¦åœ¨Logger.Coreç±»åº“ä¸­æ·»åŠ å¯¹log4netçš„å¼•ç”¨å³å¯
+* ä½¿ç”¨`log4net.LogManager.GetLogger("")`èŽ·å–log4netå¯¹è±¡
+* appender>layout>headerä¸­æ¢è¡Œ(\r\n)ï¼š&#13;&#10;
+* ä½¿ç”¨filterèŠ‚ç‚¹è¿‡æ»¤ä¸åŒç­‰çº§çš„æ—¥å¿—ï¼Œåšä¸åŒçš„å¤„ç†ï¼Œå¦‚ç»™ERRORçº§åˆ«çš„æ—¥å¿—å‘é€é‚®ä»¶~
+* è‹¥æ‰“å¼€log4net.configå¤±è´¥åˆ™ä¿®æ”¹å…¶å±žæ€§ä¸ºã€å§‹ç»ˆå¤åˆ¶ã€‘
 
 # End
-×î¿ªÊ¼µÄÊ±ºò¿´×Ålog4net.configÊÇÒ»Á³ãÂ±ÈµÄ£¬Ò»¸ö²ÎÊýÒ»¸ö²ÎÊýÐÞ¸Ä¿´ÐÞ¸Ä£¬ÕÛÌÚÕÛÌÚ×Å¾ÍÕâÑùÁË
+æœ€å¼€å§‹çš„æ—¶å€™çœ‹ç€log4net.configæ˜¯ä¸€è„¸æ‡µæ¯”çš„ï¼Œä¸€ä¸ªå‚æ•°ä¸€ä¸ªå‚æ•°ä¿®æ”¹çœ‹ä¿®æ”¹ï¼ŒæŠ˜è…¾æŠ˜è…¾ç€å°±è¿™æ ·äº†
