@@ -1,20 +1,18 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Logger.Core
 {
-    public class Log4netLogger:ILogger
+    public class NLogger : ILogger
     {
-        log4net.ILog logger;
-        public Log4netLogger()
+        NLog.ILogger logger;
+        public NLogger()
         {
-            //启动log4net
-            log4net.Config.XmlConfigurator.Configure();
-            logger = log4net.LogManager.GetLogger("Application");
+            logger = LogManager.GetLogger("Application");
         }
         public void Info(string log)
         {

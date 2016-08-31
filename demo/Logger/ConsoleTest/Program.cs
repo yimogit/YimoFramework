@@ -12,10 +12,11 @@ namespace ConsoleTest
         static void Main(string[] args)
         {
             //若提示log4net.config找不到，需将其属性改始终复制
-            ILogger logger=new Log4netLogger();
+            ILogger logger = new Log4netLogger();
             WriteTestLog(logger);
-
-            logger = new FileLogger("/FileLogs/");//bin下。
+            logger = new FileLogger("Logs\\FileLogs\\");//bin下。
+            WriteTestLog(logger);
+            logger = new NLogger();
             WriteTestLog(logger);
         }
         static void WriteTestLog(ILogger logger)
