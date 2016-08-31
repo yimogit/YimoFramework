@@ -61,7 +61,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Config\log4net.config">
+    <Content Include="Config\log4net.config" />
+    <None Include="Config\nlog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

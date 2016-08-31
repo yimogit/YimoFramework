@@ -6,7 +6,6 @@ using System.Web;
 using System.Web.Routing;
 using System.Web.Mvc;
 using System.Text.RegularExpressions;
-using System.Globalization;
 
 namespace YFK.MvcFramework.RouteExtensions
 {
@@ -65,7 +64,6 @@ namespace YFK.MvcFramework.RouteExtensions
         }
 
 
-        private IdnMapping im = new IdnMapping();//避免每次都创建IdnMapping对象
         public override RouteData GetRouteData(HttpContextBase httpContext)
         {
             domainRegex = CreateRegex(Domain);
@@ -84,7 +82,7 @@ namespace YFK.MvcFramework.RouteExtensions
             }
             string requestPath = httpContext.Request.AppRelativeCurrentExecutionFilePath.Substring(2) + httpContext.Request.PathInfo;
 
-            requestDomain = im.GetUnicode(requestDomain);//中文域名解码
+            requestDomain = new System.Globalization.IdnMapping().GetUnicode(requestDomain);//中文域名解码
 
             Match domainMatch = domainRegex.Match(requestDomain);
             Match pathMatch = pathRegex.Match(requestPath);

@@ -20,7 +20,7 @@
 * 实现日志：
     1. FileLogger √
     2. log4net √
-    3. NLog
+    3. NLog √
 
 ## 五、使用Ioc容器autofac进行服务的依赖注入
 

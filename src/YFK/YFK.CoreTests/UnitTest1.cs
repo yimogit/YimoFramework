@@ -38,6 +38,21 @@ namespace YFK.CoreTests
                 logger.Error(ex);
             }
         }
+        [TestMethod]
+        public void Nlog日志测试()
+        {
+            ILogger logger = new NLogger();
+            logger.Info("Nlog日志测试");
+            try
+            {
+                int i = 1, j = 0;
+                i = i / j;
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+            }
+        }
 
         [TestMethod]
         public void Redis测试()

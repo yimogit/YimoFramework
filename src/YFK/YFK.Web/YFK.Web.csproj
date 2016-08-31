@@ -110,6 +110,7 @@
     <Content Include="Config\YFK.config" />
     <Content Include="Views\Test\Index.cshtml" />
     <Content Include="Config\log4net.config" />
+    <Content Include="Config\nlog.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
