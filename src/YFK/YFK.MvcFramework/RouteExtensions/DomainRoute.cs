@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Routing;
 using System.Web.Mvc;
 using System.Text.RegularExpressions;
+using System.Globalization;
 
 namespace YFK.MvcFramework.RouteExtensions
 {
@@ -64,13 +65,12 @@ namespace YFK.MvcFramework.RouteExtensions
         }
 
 
+        private IdnMapping im = new IdnMapping();//避免每次都创建IdnMapping对象
         public override RouteData GetRouteData(HttpContextBase httpContext)
         {
             domainRegex = CreateRegex(Domain);
             pathRegex = CreateRegex(Url);
-
-
-            string requestDomain = httpContext.Request.Headers["host"];
+            string requestDomain = httpContext.Request.Headers["host"];//中国域名会编码，使用IdnMapping解码
             if (!string.IsNullOrEmpty(requestDomain))
             {
                 if (requestDomain.IndexOf(":") > 0)
@@ -84,17 +84,15 @@ namespace YFK.MvcFramework.RouteExtensions
             }
             string requestPath = httpContext.Request.AppRelativeCurrentExecutionFilePath.Substring(2) + httpContext.Request.PathInfo;
 
+            requestDomain = im.GetUnicode(requestDomain);//中文域名解码
 
             Match domainMatch = domainRegex.Match(requestDomain);
             Match pathMatch = pathRegex.Match(requestPath);
-
 
             RouteData data = null;
             if (domainMatch.Success && pathMatch.Success)
             {
                 data = new RouteData(this, RouteHandler);
-
-
                 if (Defaults != null)
                 {
                     foreach (KeyValuePair<string, object> item in Defaults)
@@ -102,8 +100,6 @@ namespace YFK.MvcFramework.RouteExtensions
                         data.Values[item.Key] = item.Value;
                     }
                 }
-
-
                 for (int i = 1; i < domainMatch.Groups.Count; i++)
                 {
                     Group group = domainMatch.Groups[i];
@@ -205,8 +201,6 @@ namespace YFK.MvcFramework.RouteExtensions
             source = source.Replace("-", @"\-?");
             source = source.Replace("{", @"(?<");
             source = source.Replace("}", @">([a-zA-Z0-9_]*))");
-
-
             return new Regex("^" + source + "$");
         }
 
