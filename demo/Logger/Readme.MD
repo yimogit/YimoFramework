@@ -34,6 +34,14 @@ log4net的配置(Config/log4net.config)中包含4中实现：根据需要启用�
 
 >http://blog.csdn.net/yenange/article/details/19559931
 
+## 备注
+
+* 在实例化的时候启动`log4net.Config.XmlConfigurator.Configure();`，则只需要在Logger.Core类库中添加对log4net的引用即可
+* 使用`log4net.LogManager.GetLogger("")`获取log4net对象
+* appender>layout>header中换行(\r\n)：&#13;&#10;
+* 使用filter节点过滤不同等级的日志，做不同的处理，如给ERROR级别的日志发送邮件~
+* 若打开log4net.config失败则修改其属性为【始终复制】
+
 ## 二、FileLogger
 异步写入文本日志
 
@@ -58,13 +66,6 @@ log4net的配置(Config/log4net.config)中包含4中实现：根据需要启用�
 
 >https://github.com/nlog/nlog/wiki
 
-## 备注
-
-* 在实例化的时候启动`log4net.Config.XmlConfigurator.Configure();`，则只需要在Logger.Core类库中添加对log4net的引用即可
-* 使用`log4net.LogManager.GetLogger("")`获取log4net对象
-* appender>layout>header中换行(\r\n)：&#13;&#10;
-* 使用filter节点过滤不同等级的日志，做不同的处理，如给ERROR级别的日志发送邮件~
-* 若打开log4net.config失败则修改其属性为【始终复制】
 
 # End
 最开始的时候看着log4net.config是一脸懵比的，一个参数一个参数修改看修改，折腾折腾着就这样了
