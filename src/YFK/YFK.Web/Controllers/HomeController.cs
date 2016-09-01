@@ -11,9 +11,15 @@ namespace YFK.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ILogger _logger;
+        public HomeController(ILogger logger)
+        {
+            _logger = logger;
+        }
         // GET: Home
         public ActionResult Index(string id = "")
         {
+            _logger.Debug("哈哈");
 
             string domin = Request.Headers["host"];
             //Regex r = new Regex(@"[\u4e00-\u9fa5]+");
